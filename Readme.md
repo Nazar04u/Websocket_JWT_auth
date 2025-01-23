@@ -76,7 +76,7 @@ Follow these steps to install and run the application on Windows and macOS.
 6. **Run the Application**
     In the first terminal run:
    ```bash
-   uvicorn api.main:app --port=8000 --reload
+   uvicorn app.main:app --port=8000 --reload
    ```
    In the second run:
    ```bash
