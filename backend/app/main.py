@@ -76,8 +76,8 @@ def login(login_data: LoginRequest, response: Response, db: Session = Depends(ge
     if not user or not verify_password(login_data.password, user.hashed_password):
         raise HTTPException(status_code=401, detail="Invalid credentials")
 
-    access_token = create_access_token({"sub": login_data.username})
-    refresh_token = create_refresh_token({"sub": login_data.username})
+    access_token = create_access_token({"sub": login_data.username}).decode('utf-8')
+    refresh_token = create_refresh_token({"sub": login_data.username}).decode('utf-8')
     csrf_token = secrets.token_hex(32)  # Generate a secure random CSRF token
 
     response.set_cookie(
@@ -94,6 +94,9 @@ def login(login_data: LoginRequest, response: Response, db: Session = Depends(ge
         secure=True,
         samesite="strict"
     )
+    print(access_token)
+    print(refresh_token)
+    print(csrf_token)
     return JSONResponse(
         content={
             "access_token": access_token,
