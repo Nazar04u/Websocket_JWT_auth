@@ -27,11 +27,11 @@ Follow these steps to install and run the application on Windows and macOS.
    Open two terminals
    In the first one
    ```bash
-   cd backend/
+   cd Websocket_JWT_auth/backend/
    ```
    In the second one
    ```bash
-   cd frontend/web_socket_chat
+   cd Websocket_JWT_auth/frontend/web_socket_chat
    ```
 
 2. **Create a Virtual Environment**
