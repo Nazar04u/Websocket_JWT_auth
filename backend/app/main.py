@@ -1,7 +1,6 @@
 import json
 import secrets
 
-from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
@@ -94,9 +93,6 @@ def login(login_data: LoginRequest, response: Response, db: Session = Depends(ge
         secure=True,
         samesite="strict"
     )
-    print(access_token)
-    print(refresh_token)
-    print(csrf_token)
     return JSONResponse(
         content={
             "access_token": access_token,
